@@ -1,6 +1,8 @@
 import socket
 import struct
 import sys
+import constants
+
 
 def main():
     """
@@ -18,5 +20,13 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
+def get_root_servers(filename="root-servers.txt"):
+    server_list = []
+    with open(filename) as server_file:
+        for server in server_file:
+            server_list.append(server.rstrip("\n"))
+
+    return server_list
 
 
